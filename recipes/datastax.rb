@@ -108,7 +108,7 @@ end
 
 # Define service above so chef doesn't complain
 # that there is no service to send notifications to
-service "cassandra"
+service node[:cassandra][:service_name]
 
 %w(cassandra.yaml cassandra-env.sh).each do |f|
   template File.join(node["cassandra"]["conf_dir"], f) do
@@ -121,7 +121,7 @@ service "cassandra"
   end
 end
 
-service "cassandra" do
+service node[:cassandra][:service_name] do
   supports :restart => true, :status => true
   action [:enable, :start]
 end

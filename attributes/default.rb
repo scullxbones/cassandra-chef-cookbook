@@ -46,6 +46,7 @@ default[:cassandra] = {
   :enable_assertions => true,
   :jmx_server_hostname => false,
   :auto_bootstrap => true,
+  :service_name => "cassandra",
 }
 
 default[:cassandra][:jna] = {
