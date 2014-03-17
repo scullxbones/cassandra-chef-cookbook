@@ -117,7 +117,7 @@ service node[:cassandra][:service_name]
     owner node["cassandra"]["user"]
     group node["cassandra"]["user"]
     mode  0644
-    notifies :restart, resources(:service => "cassandra")
+    notifies :restart, resources(:service => node[:cassandra][:service_name])
   end
 end
 
