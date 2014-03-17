@@ -25,5 +25,5 @@ end
 
 link "#{node.cassandra.lib_dir}/jna.jar" do
   to          "/usr/share/java/jna.jar"
-  notifies    :restart, "service[cassandra]"
+  notifies    :restart, "service[#{node[:cassandra][:service_name]}]"
 end
